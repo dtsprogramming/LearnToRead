@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableObj: {fileID: 11400000, guid: bcf69774986e9724f939a81f2d285e19, type: 2}
-  camAudio: {fileID: 0}
-  audioDelay: 0.7
   blockLetter: {fileID: 6414076830098880281}
+  audioSource: {fileID: 0}
+  audioDelay: 0.7
 --- !u!95 &4426918889320580652
 Animator:
   serializedVersion: 5

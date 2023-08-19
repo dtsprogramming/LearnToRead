@@ -1,35 +1,40 @@
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(scriptable_letter), typeof(Animator))]
+[RequireComponent(typeof(Animator))]
 public class LetterBlock : MonoBehaviour
 {
+    [Header("Scriptable Obj and Text Mesh")]
     [SerializeField] private scriptable_letter scriptableObj;
-    [SerializeField] private AudioListener camAudio;
-    [SerializeField] private float audioDelay = 1.0f;
     [SerializeField] private TextMeshPro blockLetter;
 
+    [Header("Audio")]
+    [SerializeField] private float audioDelay = 1.0f;
+
     private Animator anim;
+    private AudioSource audioSource;
 
     private void Start()
     {
         blockLetter.text = scriptableObj.letter;
         anim = GetComponent<Animator>();
+        audioSource = FindObjectOfType<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
+            gameObject.GetComponent<Collider>().enabled = false;
             anim.SetTrigger("PlayerCollision");
-            AudioSource.PlayClipAtPoint(scriptableObj.letterName, camAudio.transform.position);
+            audioSource.PlayOneShot(scriptableObj.letterName);
             Invoke("PlaySecondClip", audioDelay);
         }
     }
 
     private void PlaySecondClip()
     {
-        AudioSource.PlayClipAtPoint(scriptableObj.phonogram, camAudio.transform.position);
+        audioSource.PlayOneShot(scriptableObj.phonogram);
         Destroy(gameObject);
     }
 }
