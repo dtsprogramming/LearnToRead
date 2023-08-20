@@ -27,14 +27,21 @@ public class LetterBlock : MonoBehaviour
         {
             gameObject.GetComponent<Collider>().enabled = false;
             anim.SetTrigger("PlayerCollision");
-            audioSource.PlayOneShot(scriptableObj.letterName);
+
+            if (scriptableObj.letterName != null)
+            {
+                audioSource.PlayOneShot(scriptableObj.letterName);
+            }
             Invoke("PlaySecondClip", audioDelay);
         }
     }
 
     private void PlaySecondClip()
     {
-        audioSource.PlayOneShot(scriptableObj.phonogram);
+        if (scriptableObj.phonogram != null)
+        {
+            audioSource.PlayOneShot(scriptableObj.phonogram);
+        }
         Destroy(gameObject);
     }
 }
