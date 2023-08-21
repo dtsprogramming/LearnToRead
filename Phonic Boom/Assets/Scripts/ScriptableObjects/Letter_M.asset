@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3601601407ad524d955ca771c792def, type: 3}
-  m_Name: Letter_C
+  m_Name: Letter_M
   m_EditorClassIdentifier: 
-  letter: C
-  letterName: {fileID: 8300000, guid: a7225462de8956d43a3ec60f0ce61af6, type: 3}
-  phonogram: {fileID: 8300000, guid: 551ea111d1bd9114da43281716ef6fe6, type: 3}
+  letter: M
+  letterName: {fileID: 0}
+  phonogram: {fileID: 0}
